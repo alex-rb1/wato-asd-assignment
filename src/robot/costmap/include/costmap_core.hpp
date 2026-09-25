@@ -22,9 +22,9 @@ class CostmapCore {
 
   private:
     // Costmap parameters
-    static constexpr int kWidth = 300;               // cells
-    static constexpr int kHeight = 300;              // cells
-    static constexpr double kResolution = 0.1;       // meters per cell
+    static constexpr int kWidth = 600;               // cells
+    static constexpr int kHeight = 600;              // cells
+    static constexpr double kResolution = 0.05;      // meters per cell
     static constexpr double kInflationRadius = 1.0;  // meters
     static constexpr int kMaxCost = 100;
 
