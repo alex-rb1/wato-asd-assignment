@@ -3,7 +3,17 @@
 
 #include "costmap_node.hpp"
 
-CostmapNode::CostmapNode() : Node("costmap"), costmap_(robot::CostmapCore(this->get_logger())) {}
+CostmapNode::CostmapNode() : Node("costmap"), costmap_(robot::CostmapCore(this->get_logger()))
+{
+  lidar_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
+    "/lidar", 10, std::bind(&CostmapNode::lidarCallback, this, std::placeholders::_1));
+  costmap_pub_ = this->create_publisher<nav_msgs::msg::OccupancyGrid>("/costmap", 10);
+}
+
+void CostmapNode::lidarCallback(const sensor_msgs::msg::LaserScan::SharedPtr scan)
+{
+  costmap_pub_->publish(costmap_.buildCostmap(*scan));
+}
 
 int main(int argc, char ** argv)
 {
