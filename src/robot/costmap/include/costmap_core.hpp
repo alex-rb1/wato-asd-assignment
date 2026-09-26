@@ -25,7 +25,7 @@ class CostmapCore {
     static constexpr int kWidth = 600;               // cells
     static constexpr int kHeight = 600;              // cells
     static constexpr double kResolution = 0.05;      // meters per cell
-    static constexpr double kInflationRadius = 1.0;  // meters
+    static constexpr double kInflationRadius = 2.0;  // meters
     static constexpr int kMaxCost = 100;
 
     // Marks every valid laser hit as an obstacle and returns the (x, y) index of each marked cell
