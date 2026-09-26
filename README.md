@@ -25,8 +25,6 @@ part of the assignment's simple model of the brain:
 | Configuration + planning | `planner` | Tracks whether there's an active goal and runs A* to find a safe path to it |
 | Action | `control` | Follows the path with pure pursuit and sends velocity commands to the wheels |
 
-**Demo video:** [link here]
-
 ### How data flows
 
 1. `/lidar` scans go into **costmap**, which publishes `/costmap`.
